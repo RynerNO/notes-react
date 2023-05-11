@@ -1,15 +1,17 @@
 import styles from './SearchBox.module.css'
 import search from "../../../assets/search.svg";
+import SearchContext from '../../../context/SearchContext';
+import { useContext } from 'react';
 
 
 
-
-function SearchBox(props) {
+function SearchBox() {
+    const { updateValue } = useContext(SearchContext);
     function handleInput(event) {
         const input = event.target.value;
-        props.onChildEvent(input);
+       updateValue({value: input})
       }
-    
+   
     return (
         <div className={styles.search}>
         <input type="text" placeholder="Search" onInput={handleInput} />
