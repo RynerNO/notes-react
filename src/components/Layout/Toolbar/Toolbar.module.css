@@ -6,33 +6,8 @@
     align-items: center;
 }
 
-.search {
-    position: relative;
+.buttonsContainer {
     display: flex;
     align-items: center;
-    padding: 5px;
-    width: 300px;
-    margin-left: auto;
-  }
-  
-  .search input[type="text"] {
-    flex: 1;
-    border: none;
-    margin-right: 5px;
-    font-size: 16px;
-    outline: none;
-    padding-left: 2rem;
-  }
- 
-  .searchIcon {
-    position: absolute;
-    left: 10px;
-    --color_fill: #ccc;
-    width: 1.3rem;
-    height: 1.3rem;
-  }
-  
-  .searchIcon svg {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
+    justify-content: center;
+}
