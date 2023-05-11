@@ -1,0 +1,29 @@
+.listItem {
+  max-width: 20rem;
+  width: 100%;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+.title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.dateTextContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.3rem;
+}
+.dateTextContainer p:first-child {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.listItem:hover,
+.selected {
+  background-color: #e1e1df;
+  cursor: pointer;
+}
