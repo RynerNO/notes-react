@@ -3,8 +3,12 @@ import NotesContext from "../../../context/NotesContext";
 
 function NotesProvider({ children }) {
   const [value, setValue] = useState({
-    data: [],
+    data: {
+      changed: false,
+      items: [],
+    },
     selectedNote: 0,
+    editor: false,
   });
 
   const updateValue = (newData) => {

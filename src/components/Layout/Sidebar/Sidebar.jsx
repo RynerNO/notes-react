@@ -9,10 +9,11 @@ function Sidebar() {
   const selectNote = (index) => {
     updateValue({ selectedNote: index });
   };
+  const { items } = data;
   return (
     <div className={styles.sidebar}>
       <ul>
-        {data.map((item, index) => {
+        {items.map((item, index) => {
           return (
             <li key={item.id} onClick={() => selectNote(index)}>
               <ListItem
