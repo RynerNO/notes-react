@@ -1,9 +1,12 @@
 .sidebar {
-  max-width: 320px;
+  max-width: 20rem;
   width: 100%;
   background-color: aliceblue;
 }
-
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
 .sidebar ul li {
   list-style-type: none;
 }
