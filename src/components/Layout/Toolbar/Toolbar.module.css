@@ -6,44 +6,6 @@
     align-items: center;
 }
 
-.buttonsContainer {
-    display: flex;
-}
-
-
-.image {
-    width: 2.5rem;
-    height: 2.5rem;
-    
-}
-.button {
-    border: none;
-    outline: none;
-    background: none;
-    width: 3rem;
-    display: flex;
-    height: 3rem;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background: #f7f6f6;
-    padding: 0.2rem;
-    margin: 0.2rem;
-    border-radius: 0.4rem;
-    --color_fill: #464545
-}
-
-.button:hover {
-    cursor: pointer;
-    background: #007bff;
-    --color_fill: #fff
-}
-.button_disabled {
-    cursor: not-allowed;
-    background: #bfbfbf;
-}
-
-
 .search {
     position: relative;
     display: flex;
