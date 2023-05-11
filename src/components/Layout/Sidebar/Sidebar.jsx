@@ -9,7 +9,7 @@ function Sidebar() {
   const selectNote = (index) => {
     updateValue({ selectedNote: index });
   };
-  const { items } = data;
+  const items = data.items || [];
   return (
     <div className={styles.sidebar}>
       <ul>

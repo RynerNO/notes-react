@@ -2,3 +2,11 @@
   width: 100%;
   grid-column: 2 / 3;
 }
+
+.workspace input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+}

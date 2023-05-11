@@ -5,8 +5,10 @@ function NotesProvider({ children }) {
   const [value, setValue] = useState({
     data: {
       changed: false,
+      changedNotes: [],
       items: [],
     },
+    deletedNote: null,
     selectedNote: 0,
     editor: false,
   });
