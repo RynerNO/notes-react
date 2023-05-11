@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import SearchContext from '../../context/SearchContext';
+import React, { useState } from "react";
+import SearchContext from "../../../context/SearchContext";
 
 function SearchProvider({ children }) {
   const [value, setValue] = useState({
-    value: '',
+    value: "",
   });
 
   const updateValue = (newData) => {
@@ -15,6 +15,6 @@ function SearchProvider({ children }) {
       {children}
     </SearchContext.Provider>
   );
-};
+}
 
 export default SearchProvider;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NotesContext from "../../context/NotesContext";
+import NotesContext from "../../../context/NotesContext";
 
 function NotesProvider({ children }) {
   const [value, setValue] = useState({
