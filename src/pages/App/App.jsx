@@ -1,9 +1,10 @@
 import Toolbar from "../../components/Layout/Toolbar/Toolbar";
 import Sidebar from "../../components/Layout/Sidebar/Sidebar";
 import styles from "./App.module.css";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { fetchData } from "../../quintadb";
 import NotesContext from "../../context/NotesContext";
+import Workspace from "../../components/Layout/Workspace/Workspace";
 //import SearchContext from "../../context/SearchContext";
 const App = () => {
   const { updateValue } = useContext(NotesContext);
@@ -22,6 +23,7 @@ const App = () => {
     <div className={styles.app}>
       <Toolbar />
       <Sidebar />
+      <Workspace />
     </div>
   );
 };
