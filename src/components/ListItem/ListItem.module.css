@@ -39,10 +39,10 @@
 @media (max-width: 740px) {
   .title {
     font-size: 1rem;
-    max-width: 5rem;
+    max-width: 8rem;
   }
   .dateTextContainer p {
-    max-width: 5rem;
+    max-width: 8rem;
     margin: 0.1rem;
   }
   .dateTextContainer {
@@ -51,11 +51,11 @@
 }
 @media (max-width: 400px) {
   .title {
-    max-width: 3rem;
+    max-width: 7rem;
     white-space: pre-wrap;
   }
   .dateTextContainer {
-    max-width: 4rem;
+    max-width: 7rem;
   }
   .dateTextContainer p {
     white-space: pre-wrap;

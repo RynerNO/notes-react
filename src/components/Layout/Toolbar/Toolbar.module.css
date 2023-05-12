@@ -13,3 +13,12 @@
   justify-content: center;
   margin-left: 1rem;
 }
+
+@media (max-width: 422px) {
+  .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+}

@@ -1,5 +1,4 @@
 .sidebar {
-  max-width: 20rem;
   width: 100%;
   background-color: #0d1b2a;
   grid-column: 1 / 2;
@@ -21,4 +20,10 @@
 .sidebar::-webkit-scrollbar-thumb {
   background: #415a77;
   outline: none;
+}
+
+@media (max-width: 422px) {
+  .sidebar {
+    height: calc(100vh - 130px);
+  }
 }
