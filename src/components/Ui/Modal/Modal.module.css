@@ -20,7 +20,7 @@
 }
 
 .modalMain {
-  background-color: #ffffff;
+  background-color: #e0e1dd;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
@@ -28,16 +28,21 @@
   max-width: 20rem;
   height: 10rem;
   position: absolute;
+  color: #1b263b;
   top: calc(50% - 5rem);
   left: calc(50% - 10rem);
 }
 .modalMain button {
-  background: #fff;
+  background: #778da9;
+  color: #e0e1dd;
+  border-radius: 0.2rem;
   border: none;
   margin: 0.5rem;
   padding: 0.7rem;
   box-shadow: 7px 9px 10px rgb(0 0 0 / 11%);
 }
+
 .modal button:hover {
   cursor: pointer;
+  background: #1b263b;
 }

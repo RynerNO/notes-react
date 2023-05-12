@@ -1,13 +1,18 @@
+// Импорт стилей CSS и плагина редактора MDEditor
 import styles from "./Workspace.module.css";
 import MDEditor from "@uiw/react-md-editor";
 import { FIELDS } from "../../../quintadb";
 import { useContext } from "react";
 import NotesContext from "../../../context/NotesContext";
+
 function Workspace() {
+  // Получение данных и методов из NotesContext
   const { data, selectedNote, editor, updateValue } = useContext(NotesContext);
+  // Находим индекс выбранной заметки
   const index = data.items.findIndex((item) => item.id === selectedNote);
+
+  // Функция для обновления значения поля (текст или заголовок) заметки
   const setValue = (value, title) => {
-    if (value.length === 0) value = "Empty Note";
     if (title === "title") {
       data.items[index].values[FIELDS.title] = value;
     } else data.items[index].values[FIELDS.text] = value;
@@ -23,6 +28,8 @@ function Workspace() {
     }
     updateValue(data);
   };
+
+  // Получение текущих текста и заголовка заметки
   const text =
     data.items && data.items[index]
       ? data.items[index].values[FIELDS.text]
@@ -31,6 +38,8 @@ function Workspace() {
     data.items && data.items[index]
       ? data.items[index].values[FIELDS.title]
       : "";
+
+  // Возвращение разметки компонента с редактором
   return (
     <div className={styles.workspace}>
       <input

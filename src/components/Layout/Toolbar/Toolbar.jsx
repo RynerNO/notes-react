@@ -7,33 +7,44 @@ import edit from "../../../assets/edit.svg";
 import { useContext, useState } from "react";
 import NotesContext from "../../../context/NotesContext";
 import Modal from "../../Ui/Modal/Modal";
+
 function Toolbar() {
+  // Получаем данные и функции контекста
   const { data, selectedNote, editor, updateValue } = useContext(NotesContext);
+
+  // Переключает состояние редактирования
   const toggleEdit = () => {
     updateValue({ editor: !editor });
   };
 
+  // Создает новую заметку
   const createNote = () => {
     updateValue({ newNote: true });
   };
 
+  // Состояние для отображения модального окна
   const [modalShow, setModalShow] = useState(false);
 
+  // Закрывает модальное окно
   const handleModalClose = () => {
     setModalShow(false);
   };
 
+  // Открывает модальное окно
   const handleModalOpen = () => {
     setModalShow(true);
   };
 
+  // Удаляет выбранную заметку и закрывает модальное окно
   const handleDelete = () => {
-    console.log("Заметка удалена");
     updateValue({ deletedNote: data.items.splice(selectedNote, 1) });
     setModalShow(false);
   };
+
+  // Проверяет, выбрана ли заметка
   const notSelected =
     data.items.findIndex((item) => item.id === selectedNote) === -1;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.buttonsContainer}>

@@ -13,3 +13,11 @@
 body {
   background: #1b263b;
 }
+.w-md-editor {
+  max-height: calc(100vh - 123px);
+}
+@media (max-width: 422px) {
+  .w-md-editor {
+    max-height: calc(100vh - 171px);
+  }
+}
