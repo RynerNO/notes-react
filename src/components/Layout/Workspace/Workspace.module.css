@@ -1,14 +1,26 @@
 .workspace {
   width: 100%;
   grid-column: 2 / 3;
+  height: calc(100vh - 123px);
 }
 
 .workspace input[type="text"] {
-  width: 100%;
   padding: 0.5rem;
   font-size: 1.5rem;
   border: none;
   outline: none;
   background: #1b263b;
   color: #e0e1dd;
+}
+
+@media (max-width: 550px) {
+  .workspace {
+    grid-column: 1 / -1;
+    height: calc(100vh - 215px);
+  }
+}
+@media (max-width: 422px) {
+  .workspace {
+    height: calc(100vh - 263px);
+  }
 }

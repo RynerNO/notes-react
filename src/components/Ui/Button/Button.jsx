@@ -1,5 +1,5 @@
 import styles from "./Button.module.css";
-function Button({ image, title, onClick, disabled }) {
+function Button({ image, title, onClick, disabled, active }) {
   const clickHandler = (e) => {
     if (disabled) return;
     onClick(e);
@@ -8,7 +8,9 @@ function Button({ image, title, onClick, disabled }) {
     <button
       type="button"
       onClick={clickHandler}
-      className={`${styles.button} ${disabled ? styles.disabled : ""}`}
+      className={`${styles.button} ${active ? styles.active : ""} ${
+        disabled ? styles.disabled : ""
+      }`}
       title={title}
       disabled={disabled}
     >

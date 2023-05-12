@@ -20,10 +20,12 @@
   --color_fill: #e0e1dd;
 }
 
-.button:hover {
-  cursor: pointer;
-  background: #e0e1dd;
-  --color_fill: #1b263b;
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    cursor: pointer;
+    background: #e0e1dd;
+    --color_fill: #1b263b;
+  }
 }
 .disabled {
   cursor: not-allowed;
@@ -34,4 +36,8 @@
   cursor: not-allowed;
   background: #778da9;
   --color_fill: #415a77;
+}
+.active {
+  background: #e0e1dd;
+  --color_fill: #1b263b;
 }

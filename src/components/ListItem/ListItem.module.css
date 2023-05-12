@@ -7,6 +7,7 @@
   flex-direction: column;
   padding-left: 1rem;
   color: #e0e1dd;
+  user-select: none;
 }
 .title {
   font-size: 1.2rem;
@@ -44,20 +45,23 @@
   .dateTextContainer p {
     max-width: 8rem;
     margin: 0.1rem;
+    width: 100%;
   }
   .dateTextContainer {
     flex-wrap: wrap;
   }
 }
+@media (max-width: 550px) {
+  .listItem {
+    min-width: 8rem;
+    max-width: 8rem;
+  }
+}
 @media (max-width: 400px) {
   .title {
     max-width: 7rem;
-    white-space: pre-wrap;
   }
   .dateTextContainer {
     max-width: 7rem;
-  }
-  .dateTextContainer p {
-    white-space: pre-wrap;
   }
 }

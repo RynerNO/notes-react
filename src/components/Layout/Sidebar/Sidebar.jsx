@@ -8,7 +8,7 @@ function Sidebar() {
   const { filteredItems, selectedNote, updateValue } = useContext(NotesContext);
 
   const selectNote = (id) => {
-    updateValue({ selectedNote: id, editor: false });
+    updateValue({ selectedNote: id });
   };
   const items = filteredItems || [];
   return (

@@ -6,30 +6,10 @@
       "src": "favicon.ico",
       "sizes": "120x120",
       "type": "image/x-icon"
-    },
-    {
-      "src": "icons8-notes-gradient-16.png",
-      "type": "image/png",
-      "sizes": "16x16"
-    },
-    {
-      "src": "icons8-notes-gradient-32.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "icons8-notes-gradient-96.png",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "icons8-notes-gradient-120.png",
-      "type": "image/png",
-      "sizes": "120x120"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#0D1B2A",
-  "background_color": "#ffffff"
+  "background_color": "#1b263b"
 }

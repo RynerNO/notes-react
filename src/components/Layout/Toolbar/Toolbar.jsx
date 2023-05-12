@@ -19,7 +19,7 @@ function Toolbar() {
 
   // Создает новую заметку
   const createNote = () => {
-    updateValue({ newNote: true });
+    updateValue({ newNote: true, editor: true });
   };
 
   // Состояние для отображения модального окна
@@ -60,6 +60,7 @@ function Toolbar() {
           onClick={toggleEdit}
           title={"Edit"}
           disabled={notSelected}
+          active={editor}
         />
       </div>
       <Modal

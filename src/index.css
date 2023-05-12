@@ -1,3 +1,6 @@
+html {
+  color-scheme: normal;
+}
 .w-md-editor-toolbar ul:nth-child(2) {
   display: none;
 }
@@ -16,8 +19,14 @@ body {
 .w-md-editor {
   max-height: calc(100vh - 123px);
 }
+@media (max-width: 550px) {
+  .w-md-editor {
+    max-height: calc(100vh - 215x);
+  }
+}
+
 @media (max-width: 422px) {
   .w-md-editor {
-    max-height: calc(100vh - 171px);
+    max-height: calc(100vh - 263px);
   }
 }

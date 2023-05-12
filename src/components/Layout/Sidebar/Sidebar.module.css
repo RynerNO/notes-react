@@ -22,8 +22,22 @@
   outline: none;
 }
 
-@media (max-width: 422px) {
+@media (max-width: 550px) {
   .sidebar {
-    height: calc(100vh - 130px);
+    width: 100%;
+    grid-column: 1 / -1;
+    height: auto;
+  }
+  .sidebar ul {
+    display: flex;
+    overflow-x: scroll;
+  }
+  .sidebar ul::-webkit-scrollbar {
+    background: #0d1b2a;
+    height: 0.5rem;
+  }
+  .sidebar ul::-webkit-scrollbar-thumb {
+    background: #415a77;
+    outline: none;
   }
 }
