@@ -6,8 +6,8 @@ import ListItem from "../../ListItem/ListItem";
 
 function Sidebar() {
   const { data, selectedNote, updateValue } = useContext(NotesContext);
-  const selectNote = (index) => {
-    updateValue({ selectedNote: index });
+  const selectNote = (id) => {
+    updateValue({ selectedNote: id, editor: false });
   };
   const items = data.items || [];
   return (
@@ -15,12 +15,12 @@ function Sidebar() {
       <ul>
         {items.map((item, index) => {
           return (
-            <li key={item.id} onClick={() => selectNote(index)}>
+            <li key={item.id} onClick={() => selectNote(item.id)}>
               <ListItem
                 title={item.values[FIELDS.title]}
                 text={item.values[FIELDS.text]}
                 date={item.updated_at}
-                isSelected={index === selectedNote}
+                isSelected={item.id === selectedNote}
               ></ListItem>
             </li>
           );

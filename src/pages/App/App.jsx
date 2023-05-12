@@ -6,16 +6,24 @@ import { FIELDS, fetchData } from "../../quintadb";
 import NotesContext from "../../context/NotesContext";
 import Workspace from "../../components/Layout/Workspace/Workspace";
 import { debounce } from "lodash";
-import { updateEntry, deleteEntry } from "../../quintadb";
+import { updateEntry, deleteEntry, createEntry } from "../../quintadb";
 //import SearchContext from "../../context/SearchContext";
 const App = () => {
-  const { data, selectedNote, deletedNote, updateValue } =
+  const { data, selectedNote, editor, newNote, deletedNote, updateValue } =
     useContext(NotesContext);
+  // Sotring by date
+  const sort = () => {
+    data.items.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    updateValue(data);
+  };
   useEffect(() => {
-    console.log("Изменение контекста");
+    console.log("Sort");
+    sort();
+  }, [data.items]);
+  useEffect(() => {
     // Оборачиваем асинхронный вызов в IIFE (Immediately Invoked Function Expression)
     (async () => {
-      const response = await fetchData();
+      let response = await fetchData();
       if (response) {
         updateValue({
           data: { changed: false, items: response, changedNotes: [] },
@@ -25,31 +33,48 @@ const App = () => {
       }
     })();
   }, []);
+
   const saveToDB = (data) => {
+    console.log("Save");
     for (let i = 0; i < data.changedNotes.length; i++) {
-      console.log(data.changedNotes[i]);
+      const changedNotes = data.changedNotes;
       updateEntry(
-        data.items[data.changedNotes[i]].id,
-        data.items[data.changedNotes[i]].values[FIELDS.title],
-        data.items[data.changedNotes[i]].values[FIELDS.text]
+        data.items[changedNotes[i]].id,
+        data.items[changedNotes[i]].values[FIELDS.title],
+        data.items[changedNotes[i]].values[FIELDS.text]
       );
     }
     data.changedNotes = [];
     updateValue(data);
   };
-  const debouncedSave = useCallback(debounce(saveToDB, 5000), []);
+  const debouncedSave = useCallback(debounce(saveToDB, 3000), []);
+  // Saving Note
   useEffect(() => {
-    if (!data.items[selectedNote]) return;
+    if (!data.items) return;
 
     debouncedSave(data);
-  }, [data.changed]);
+  }, [data.changed, editor, selectedNote, data.changedNotes]);
 
+  // Deletion of a Note
   useEffect(() => {
-    console.log("Delete");
     if (!deletedNote || !deletedNote[0].id) return;
+    console.log("Delete");
     deleteEntry(deletedNote[0].id);
     updateValue({ deletedNote: null });
   }, [deletedNote]);
+  // Creation of a Note
+  useEffect(() => {
+    if (!newNote) return;
+    console.log("Create");
+    const request = createEntry("New note", "Note text");
+    request.then((response) => {
+      data.items.push(response.data.record);
+      sort();
+      updateValue({ data: data, selectedNote: response.data.record.id });
+    });
+
+    updateValue({ newNote: false });
+  }, [newNote]);
   //const Search = useContext(SearchContext)
   return (
     <div className={styles.app}>

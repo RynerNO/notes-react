@@ -8,6 +8,7 @@ function NotesProvider({ children }) {
       changedNotes: [],
       items: [],
     },
+    newNote: false,
     deletedNote: null,
     selectedNote: 0,
     editor: false,

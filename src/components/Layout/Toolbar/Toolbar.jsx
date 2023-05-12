@@ -8,7 +8,7 @@ import { useContext } from "react";
 import NotesContext from "../../../context/NotesContext";
 
 function Toolbar() {
-  const { data, selectedNote, deletedNote, editor, updateValue } =
+  const { data, selectedNote, editor, newNote, updateValue } =
     useContext(NotesContext);
   const toggleEdit = () => {
     updateValue({ editor: !editor });
@@ -17,12 +17,28 @@ function Toolbar() {
   const deleteNote = () => {
     updateValue({ deletedNote: data.items.splice(selectedNote, 1) });
   };
+
+  const createNote = () => {
+    updateValue({ newNote: true });
+  };
+  const notSelected =
+    data.items.findIndex((item) => item.id === selectedNote) === -1;
   return (
     <div className={styles.wrapper}>
       <div className={styles.buttonsContainer}>
-        <Button image={add} title={"add"} />
-        <Button image={trash} onClick={deleteNote} title={"remove"} />
-        <Button image={edit} onClick={toggleEdit} title={"edit"} />
+        <Button image={add} onClick={createNote} title={"add"} />
+        <Button
+          image={trash}
+          onClick={deleteNote}
+          title={"remove"}
+          disabled={notSelected}
+        />
+        <Button
+          image={edit}
+          onClick={toggleEdit}
+          title={"edit"}
+          disabled={notSelected}
+        />
       </div>
       <SearchBox />
     </div>
