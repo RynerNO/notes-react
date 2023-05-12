@@ -1,3 +1,15 @@
 .w-md-editor-toolbar ul:nth-child(2) {
   display: none;
 }
+.w-md-editor-content {
+  background: #1b263b;
+}
+.wmde-markdown-color p {
+  background: #1b263b;
+}
+.w-md-editor-toolbar {
+  background: #0d1b2a;
+}
+body {
+  background: #1b263b;
+}

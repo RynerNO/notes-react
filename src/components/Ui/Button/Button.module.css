@@ -1,31 +1,37 @@
 .image {
-    width: 2.5rem;
-    height: 2.5rem;
-    
+  width: 1.6rem;
+  height: 1.6rem;
 }
 .button {
-    border: none;
-    outline: none;
-    background: none;
-    width: 3rem;
-    display: flex;
-    height: 3rem;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background: #f7f6f6;
-    padding: 0.2rem;
-    margin: 0.2rem;
-    border-radius: 0.4rem;
-    --color_fill: #464545
+  border: none;
+  outline: none;
+  background: none;
+  width: 2.5rem;
+  display: flex;
+  height: 2.5rem;
+
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #415a77;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  border-radius: 0.4rem;
+  --color_fill: #e0e1dd;
 }
 
 .button:hover {
-    cursor: pointer;
-    background: #007bff;
-    --color_fill: #fff
+  cursor: pointer;
+  background: #e0e1dd;
+  --color_fill: #1b263b;
 }
-.button_disabled {
-    cursor: not-allowed;
-    background: #bfbfbf;
+.disabled {
+  cursor: not-allowed;
+  background: #778da9;
+  --color_fill: #415a77;
+}
+.disabled:hover {
+  cursor: not-allowed;
+  background: #778da9;
+  --color_fill: #415a77;
 }

@@ -3,13 +3,16 @@ import NotesContext from "../../../context/NotesContext";
 import { FIELDS } from "../../../quintadb";
 import styles from "./Sidebar.module.css";
 import ListItem from "../../ListItem/ListItem";
+import SearchContext from "../../../context/SearchContext";
 
 function Sidebar() {
-  const { data, selectedNote, updateValue } = useContext(NotesContext);
+  const { filteredItems, selectedNote, updateValue } = useContext(NotesContext);
+  const { value } = useContext(SearchContext);
+
   const selectNote = (id) => {
     updateValue({ selectedNote: id, editor: false });
   };
-  const items = data.items || [];
+  const items = filteredItems || [];
   return (
     <div className={styles.sidebar}>
       <ul>

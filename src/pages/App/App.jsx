@@ -7,7 +7,7 @@ import NotesContext from "../../context/NotesContext";
 import Workspace from "../../components/Layout/Workspace/Workspace";
 import { debounce } from "lodash";
 import { updateEntry, deleteEntry, createEntry } from "../../quintadb";
-//import SearchContext from "../../context/SearchContext";
+import SearchContext from "../../context/SearchContext";
 const App = () => {
   const { data, selectedNote, editor, newNote, deletedNote, updateValue } =
     useContext(NotesContext);
@@ -28,6 +28,7 @@ const App = () => {
         updateValue({
           data: { changed: false, items: response, changedNotes: [] },
           selectedNote: 0,
+          filteredItems: response,
           deletedNote: null,
         });
       }
@@ -75,7 +76,25 @@ const App = () => {
 
     updateValue({ newNote: false });
   }, [newNote]);
-  //const Search = useContext(SearchContext)
+  // Search
+  const { value } = useContext(SearchContext);
+  useEffect(() => {
+    if (value.length === 0) {
+      updateValue({ filteredItems: data.items });
+      return;
+    }
+    const filteredItems = data.items.filter((item) => {
+      return (
+        item.values[FIELDS.title].toLowerCase().includes(value.toLowerCase()) ||
+        item.values[FIELDS.text].toLowerCase().includes(value.toLowerCase())
+      );
+    });
+
+    updateValue({
+      filteredItems: filteredItems,
+    });
+  }, [value]);
+
   return (
     <div className={styles.app}>
       <Toolbar />

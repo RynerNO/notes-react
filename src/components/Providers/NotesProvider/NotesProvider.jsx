@@ -10,6 +10,7 @@ function NotesProvider({ children }) {
     },
     newNote: false,
     deletedNote: null,
+    filteredItems: [],
     selectedNote: 0,
     editor: false,
   });

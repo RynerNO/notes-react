@@ -15,13 +15,20 @@
   margin-right: 5px;
   font-size: 16px;
   outline: none;
+  padding: 0.7rem;
+  color: #1b263b;
   padding-left: 2rem;
+  border-radius: 1rem;
+  background: #e0e1dd;
+  padding-left: 3rem;
 }
-
+.search input[type="text"]::placeholder {
+  color: #415a77;
+}
 .searchIcon {
   position: absolute;
-  left: 10px;
-  --color_fill: #ccc;
+  left: 1rem;
+  --color_fill: #415a77;
   width: 1.3rem;
   height: 1.3rem;
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { QUINTA_API, FIELDS, ENTITY_ID, QUINTA_DB_ID } from "./config";
 export const updateEntry = (entry_id, title, text) => {
+  console.log("Saving to DB");
   const data = {
     values: {
       entity_id: ENTITY_ID,
